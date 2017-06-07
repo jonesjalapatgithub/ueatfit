@@ -1,15 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { State } from './state';
-
-const STATES: State[] = [
-  { id: 11, name: 'Kerala' },
-  { id: 12, name: 'Maharashtra' },
-  { id: 13, name: 'karnatake' },
-  { id: 14, name: 'Telangana' },
-  { id: 15, name: 'Andra Pradesh' },
-  { id: 16, name: 'Tamil Nadu' },
-];
-
+import {StateService} from './state.service';
 
 @Component({
   selector: 'introduction',
@@ -78,15 +69,28 @@ const STATES: State[] = [
       margin-right: .8em;
       border-radius: 4px 0 0 4px;
     }
-  `]
+  `],
+  providers: [StateService]
 })
-export class AppComponent  { 
+export class AppComponent implements OnInit { 
   name = 'Angular'; 
-
-  states = STATES;
+  states: State[];
   selectedState: State;
+  
+  constructor(private stateService: StateService){}
+  
+  getStates(): void {
+    this.stateService.getStates().then(states => this.states = states);
+  }
+
+  ngOnInit(): void {
+    this.getStates();
+  }
+  
   onSelect(state: State): void {
     this.selectedState = state;
   }
+
+  
 
   }
