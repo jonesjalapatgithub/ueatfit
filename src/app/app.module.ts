@@ -5,15 +5,32 @@ import {StateDetailComponent} from './state-detail.component';
 import { AppComponent }  from './app.component';
 import {StatesComponent } from './states.component';
 import { StateService }         from './state.service';
-
+import { RouterModule }   from '@angular/router';
+import {DashboardComponent} from './dashboard.component';
 @NgModule({
   imports:      [ 
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot([
+        {
+    path: 'states',
+    component: StatesComponent
+        },
+        {
+  path: '',
+  redirectTo: '/dashboard',
+  pathMatch: 'full'
+},
 
-     ],
+        {
+  path: 'dashboard',
+  component: DashboardComponent
+},
+      ])
+    ],
   declarations: [ 
     AppComponent,
+    DashboardComponent,
     StatesComponent,
     StateDetailComponent
      ],

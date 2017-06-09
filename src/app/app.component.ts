@@ -7,7 +7,11 @@ template: `<h1>
   This should not be the case
   I would like to present here certain dietry items that you should follow. 
   </h1>
-  <my-states></my-states>
+  <nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/states">STATES</a>
+  </nav>
+   <router-outlet></router-outlet>
   `,
 })
 export class AppComponent{
