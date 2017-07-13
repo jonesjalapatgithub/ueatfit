@@ -11,4 +11,9 @@ export class StateService {
     getStates(): Promise<State[]>{
         return Promise.resolve(STATES);
     }
+    getState(id: number): Promise<State> {
+  return this.getStates()
+             .then(states => states.find(state => state.id === id));
+}
+
 }

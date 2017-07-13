@@ -17,6 +17,7 @@ import {StateService} from './state.service';
  <state-detail [state]="selectedState"></state-detail>
   
   `,
+  
   styles: [`
     .selected {
       background-color: #CFD8DC !important;
