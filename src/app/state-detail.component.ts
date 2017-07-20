@@ -1,4 +1,4 @@
-import {Component, Input,OnInit} from '@angular/core';
+import {Component,OnInit} from '@angular/core';
 import { State } from './state';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
@@ -9,10 +9,11 @@ import 'rxjs/add/operator/switchMap';
 @Component({
     selector: 'state-detail',
     templateUrl: './state-detail.component.html',
+    styleUrls: [ './state-detail.component.css' ]
     })
 export class StateDetailComponent implements OnInit {
     
-    @Input() state: State;
+    state: State;
 
     constructor(
   private stateService: StateService,

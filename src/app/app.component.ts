@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
 selector: 'introduction',
+styleUrls: ['./app.component.css'],
 template: `<h1>
   Health is very important to our life which we seldom ignore.
   This should not be the case

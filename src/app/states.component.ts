@@ -1,23 +1,11 @@
 import { Component,OnInit } from '@angular/core';
 import { State } from './state';
 import {StateService} from './state.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'my-states',
-  template: `
-
-  <h2>The List of State based Diet Plans</h2>
-  <ul class="heroes">
-      <li *ngFor="let state of states"
-        [class.selected]="state === selectedState"
-        (click)="onSelect(state)">
-        <span class="badge">{{state.id}}</span> {{state.name}}
-      </li>
-    </ul>
- <state-detail [state]="selectedState"></state-detail>
-  
-  `,
-  
+  templateUrl: './states.component.html',
   styles: [`
     .selected {
       background-color: #CFD8DC !important;
@@ -73,7 +61,10 @@ export class StatesComponent implements OnInit {
   states: State[];
   selectedState: State;
   
-  constructor(private stateService: StateService){}
+  constructor(
+    private stateService: StateService,
+    private router: Router
+    ){}
   
   getStates(): void {
     this.stateService.getStates().then(states => this.states = states);
@@ -86,7 +77,8 @@ export class StatesComponent implements OnInit {
   onSelect(state: State): void {
     this.selectedState = state;
   }
-
   
-
+  gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedState.id]);
   }
+}

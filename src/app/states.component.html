@@ -1,0 +1,14 @@
+  <h2>The List of State based Diet Plans</h2>
+  <ul class="heroes">
+      <li *ngFor="let state of states"
+        [class.selected]="state === selectedState"
+        (click)="onSelect(state)">
+        <span class="badge">{{state.id}}</span> {{state.name}}
+      </li>
+    </ul>
+<div *ngIf="selectedState">
+  <h2>
+    {{selectedState.name | uppercase}} Diet Plans
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
