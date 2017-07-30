@@ -7,12 +7,14 @@ import {StatesComponent } from './states.component';
 import { StateService }         from './state.service';
 import {DashboardComponent} from './dashboard.component';
 import { AppRoutingModule }     from './app-routing.module';
-
+import { HttpModule }    from '@angular/http';
 @NgModule({
   imports:      [ 
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    HttpModule
   ],
   declarations: [ 
     AppComponent,

@@ -9,13 +9,13 @@ import {StateService} from './state.service';
 })
 export class DashboardComponent implements OnInit {
 
-    states: State[] = [];
+    states: State[];
 
     constructor(private stateService: StateService){}
 
     ngOnInit(): void {
     this.stateService.getStates()
-      .then(states => this.states = states.slice(1, 5));
+      .then(states => this.states = states.slice(1, 3));
   }
 
  }
