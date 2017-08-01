@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
     this.stateService.getStates()
-      .then(states => this.states = states.slice(1, 3));
+      .then(states => this.states = states.slice(1, 6));
   }
 
  }
